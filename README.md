@@ -131,16 +131,16 @@ GROUP BY e.nome
 ORDER BY receita DESC;
 ```
 
-| nome_especialidade | receita (R$) | % do total |
-|--------------------|-------------:|-----------:|
-| Dermatologia | 14.848,00 | 21,6% |
-| Ortopedia | 12.582,50 | 18,3% |
-| Cardiologia | 12.521,00 | 18,2% |
-| Oftalmologia | 9.126,00 | 13,3% |
-| Neurologia | 6.174,00 | 9,0% |
-| Ginecologia | 4.860,00 | 7,1% |
-| Pediatria | 4.424,00 | 6,4% |
-| Clínica Geral | 4.257,00 | 6,2% |
+| nome_especialidade | receita (R$) |
+|--------------------|-------------:|
+| Dermatologia | 14.848,00 |
+| Ortopedia | 12.582,50 |
+| Cardiologia | 12.521,00 |
+| Oftalmologia | 9.126,00 |
+| Neurologia | 6.174,00 |
+| Ginecologia | 4.860,00 |
+| Pediatria | 4.424,00 | 
+| Clínica Geral | 4.257,00 | 
 
 **Leitura:** **três especialidades (Dermatologia, Ortopedia e Cardiologia) concentram 58% da receita**. Clínica Geral, Pediatria e Ginecologia, juntas, somam menos de 20%.
 
@@ -160,13 +160,13 @@ GROUP BY convenio
 ORDER BY qtd_pacientes DESC, convenio;
 ```
 
-| convenio | qtd_pacientes | % |
-|----------|--------------:|--:|
-| Particular | 18 | 30,0% |
-| Vida Plena Saúde | 18 | 30,0% |
-| MedCenter | 10 | 16,7% |
-| Nordeste Saúde | 8 | 13,3% |
-| Amparo Saúde | 6 | 10,0% |
+| convenio | qtd_pacientes |
+|----------|--------------:|
+| Particular | 18 |
+| Vida Plena Saúde | 18 |
+| MedCenter | 10 |
+| Nordeste Saúde | 8 |
+| Amparo Saúde | 6 |
 
 **Leitura:** dos 60 pacientes, **70% vêm de convênios**, e a **Vida Plena Saúde sozinha responde por 30%** da base, o mesmo peso dos pacientes particulares. O `LEFT JOIN` com `COALESCE` foi necessário para contar os particulares, que não têm convênio cadastrado (`convenio_id` nulo) e desapareceriam num `INNER JOIN`.
 
@@ -221,11 +221,11 @@ GROUP BY faixa_etaria
 ORDER BY pacientes DESC;
 ```
 
-| faixa_etaria | pacientes | % |
-|--------------|----------:|--:|
-| Adulto | 35 | 58,3% |
-| Idoso | 15 | 25,0% |
-| Criança | 10 | 16,7% |
+| faixa_etaria | pacientes | 
+|--------------|----------:|
+| Adulto | 35 |
+| Idoso | 15 |
+| Criança | 10 |
 
 **Leitura:** a maioria dos pacientes é adulta (58%), mas **um em cada quatro tem 60 anos ou mais**, e crianças são 17% da base.
 
