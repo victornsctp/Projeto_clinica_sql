@@ -26,7 +26,7 @@ Meu papel neste cenário: **analista de dados**, responsável por transformar o 
 
 ## 3. Modelo de dados
 
-![Diagrama entidade-relacionamento](docs/diagrama_er.png)
+![Diagrama entidade-relacionamento](diagrama_er.png)
 
 | Tabela | Descrição | Registros |
 |--------|-----------|-----------|
