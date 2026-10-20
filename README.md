@@ -74,8 +74,6 @@ ORDER BY qt_consultas DESC;
 
 **Leitura:** das 327 consultas com data até 06/10/2026 (as 13 `Agendada` são futuras), **271 foram realizadas (82,9%)**, 32 tiveram falta do paciente (9,8%) e 24 foram canceladas (7,3%). Ou seja, **cerca de 17% da agenda não virou atendimento**.
 
-**Recomendação:** confirmar a consulta 24 a 48 horas antes (mensagem automática) e criar uma lista de espera para reaproveitar horários cancelados.
-
 ---
 
 ### Q2. Como a receita evolui mês a mês?
@@ -112,7 +110,6 @@ ORDER BY ano_mes;
 
 **Leitura:** a receita total no período é de **R$ 68.792,50**, com média de cerca de **R$ 4.528 por mês** (considerando os meses completos). O melhor mês foi janeiro/2026 (R$ 7.818,00) e o mais fraco, novembro/2025 (R$ 2.720,50). O ponto de atenção é o **3º trimestre de 2026: R$ 10.463,50, uma queda de 40% em relação ao 2º trimestre (R$ 17.453,00)**.
 
-**Recomendação:** investigar o que mudou entre jun e jul/2026 (agenda dos médicos, férias, aumento de faltas ou perda de pacientes de algum convênio). A consulta apenas mostra *que* a receita caiu, e as causas precisam ser verificadas com a operação.
 
 ---
 
@@ -144,7 +141,6 @@ ORDER BY receita DESC;
 
 **Leitura:** **três especialidades (Dermatologia, Ortopedia e Cardiologia) concentram 58% da receita**. Clínica Geral, Pediatria e Ginecologia, juntas, somam menos de 20%.
 
-**Recomendação:** o resultado mistura volume de atendimentos com valor da consulta. O próximo passo é separar as duas coisas (quantidade × ticket médio) para saber se as especialidades de menor receita têm agenda ociosa ou apenas consultas mais baratas.
 
 ---
 
@@ -170,7 +166,6 @@ ORDER BY qtd_pacientes DESC, convenio;
 
 **Leitura:** dos 60 pacientes, **70% vêm de convênios**, e a **Vida Plena Saúde sozinha responde por 30%** da base, o mesmo peso dos pacientes particulares. O `LEFT JOIN` com `COALESCE` foi necessário para contar os particulares, que não têm convênio cadastrado (`convenio_id` nulo) e desapareceriam num `INNER JOIN`.
 
-**Recomendação:** monitorar a concentração na Vida Plena Saúde e avaliar ações para ampliar a base particular, já que o convênio paga apenas uma parte do valor da consulta.
 
 ---
 
@@ -203,7 +198,6 @@ ORDER BY qtd_solicitada DESC, nome_exame;
 
 **Leitura:** foram 169 exames solicitados, que somam R$ 30.305,00 a valores de tabela. O **Raio-X de Tórax é o mais pedido (24)**, mas a **Ressonância Magnética gera mais receita: R$ 11.700,00, ou 38,6% do total com apenas 15 pedidos**. Volume e receita contam histórias diferentes. Note também que a lista tem 11 exames: um dos 12 do catálogo nunca foi solicitado e, por isso, não aparece no `INNER JOIN`.
 
-**Recomendação:** proteger a oferta de exames de alto valor (ressonância, ecocardiograma) e revisar o catálogo para decidir o que fazer com o exame sem nenhuma demanda.
 
 ---
 
@@ -229,7 +223,6 @@ ORDER BY pacientes DESC;
 
 **Leitura:** a maioria dos pacientes é adulta (58%), mas **um em cada quatro tem 60 anos ou mais**, e crianças são 17% da base.
 
-**Recomendação:** considerar o perfil mais idoso no planejamento de agenda e de exames (por exemplo, cardiologia e exames de rotina) e acessibilidade da estrutura física.
 
 ---
 
